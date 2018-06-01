@@ -2,4 +2,4 @@
 
 ## Breadth First Search
 
-## web crawler BFS [WIP]
+## web crawler BFS
