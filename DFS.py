@@ -29,18 +29,18 @@ class DFS(object):
             # print(v)
             if not v.visited:
                 v.visited = True
-                self.dfs_recursive(v)
+                self.dfs_stack(v)
 
-    # def dfs_stack(self, root_vertex):
-    #     # print(root_vertex)
-    #     self.vertices.append(root_vertex)
-    #     root_vertex.visited = True
+    def dfs_stack(self, root_vertex):
+        # print(root_vertex)
+        self.vertices.append(root_vertex)
+        root_vertex.visited = True
 
-    #     while not len(self.vertices):
-    #         vertex = self.vertices.pop()
-    #         print(vertex)
+        while len(self.vertices) > 0:
+            vertex = self.vertices.pop()
+            print(vertex)
 
-    #         for v in vertex.neighbour_list:
-    #             if not v.visited:
-    #                 v.visited = True
-    #                 self.vertices.append(v)
+            for v in vertex.neighbour_list:
+                if not v.visited:
+                    v.visited = True
+                    self.vertices.append(v)
