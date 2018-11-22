@@ -1,3 +1,14 @@
+"""
+Given the mapping a = 1, b = 2, ... z = 26, and an encoded message, count the number of ways it can be decoded.
+
+For example, the message '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
+
+You can assume that the messages are decodable. For example, '001' is not allowed.
+
+"""
+
+
+
 def run(data, k, memo):
     if k == 0:
         return 1
@@ -15,22 +26,9 @@ def run(data, k, memo):
     memo[k] = result
     return memo
 
-    # for i in range(2, len(num) + 1):
-    #     count[i] = 0
-
-    #     if num[i-1] > '0':
-    #         count[i] = count[i-1]
-
-    #     if num[i-2] == '1' or (num[i-2] == '2' and num[i-1] < '7'):
-    #         count[i] += count[i-2]
-    # return count[len(num)]
-
-    #     # result.append(''.join(temp_result))
-        
-    # print(result)
 
 if __name__ == "__main__":
     data = '286'
     k = len(data)
     memo = [0] * (k + 1)
-    print(run('345',k, memo))
+    print(run(data,k, memo))
