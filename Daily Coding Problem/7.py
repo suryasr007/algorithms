@@ -8,8 +8,7 @@ You can assume that the messages are decodable. For example, '001' is not allowe
 """
 
 
-
-def run(data, k, memo):
+def helper(data, k, memo):
     if k == 0:
         return 1
     
@@ -17,18 +16,20 @@ def run(data, k, memo):
     if data[s] == '0':
         return 0
     
-    if memo[k] != 0:
+    if memo[k] != None:
         return memo[k]
     
-    result = run(data, k-1, memo)
+    result = helper(data, k-1, memo)
     if k >=2 and int(data[s:s+2]) <=26:
-        result +=run(data, k-2, memo)
+        result +=helper(data, k-2, memo)
     memo[k] = result
-    return memo
+    return result
 
+
+def num_ways(data):
+    k = len(data)
+    memo = [None] * (k + 1)
+    return helper(data, len(data), memo)
 
 if __name__ == "__main__":
-    data = '286'
-    k = len(data)
-    memo = [0] * (k + 1)
-    print(run(data,k, memo))
+    print(num_ways("111"))
